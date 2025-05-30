@@ -40,7 +40,7 @@ const Imageupload: React.FC<ImageUploadProps> = ({
   handleImageSelect,
 }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const imagesPerPage = 6;
+  const imagesPerPage = 9;
   
   const paginatedImages = useMemo(() => {
     const startIndex = currentPage * imagesPerPage;
@@ -115,9 +115,9 @@ const Imageupload: React.FC<ImageUploadProps> = ({
 
                 <div className="relative col-span-2">
                   {showGalleryImages && (
-                    <div className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm flex items-center justify-center" onClick={() => setShowGalleryImages(false)}>
+                    <div className="backdrop-blur-sm flex items-center justify-center" onClick={() => setShowGalleryImages(false)}>
                       <div 
-                        className="bg-white rounded-xl shadow-xl p-6 z-50 w-full max-w-2xl max-h-[80vh] overflow-hidden transition-all duration-300 ease-in-out"
+                        className="bg-white rounded-xl shadow-xl p-6 z-50 w-full max-w-2xl max-h-[60vh] overflow-hidden transition-all duration-300 ease-in-out mb-4"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <div className="flex justify-between items-center mb-4 border-b pb-3">

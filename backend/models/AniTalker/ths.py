@@ -48,12 +48,20 @@ def run_ths(image_path_input: str, audio_path_input: str, device: str = "cpu") -
             'test_hubert_path': '',
             'result_path': result_path,
             'device': device,
+            # 'face_sr': True
         }
 
         print("Generating video...")
         run_from_args(args)
 
         video_file = next((os.path.join(result_path, f) for f in os.listdir(result_path) if f.endswith('.mp4')), None)
+
+        # # Check for SR file first if face_sr is True
+        # if args['face_sr']:
+        #     video_file = next((os.path.join(result_path, f) for f in os.listdir(result_path) if f.endswith('_SR.mp4')), None)
+        # else:
+        #     video_file = next((os.path.join(result_path, f) for f in os.listdir(result_path) if f.endswith('.mp4')), None)
+
 
         if not video_file or not os.path.exists(video_file):
             raise FileNotFoundError("Generated video not found.")
